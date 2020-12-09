@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    jdbc-url: jdbc:h2:mem:explicit;DB_CLOSE_ON_EXIT=FALSE;
+    username: sa
+    pool-name: explicit-pool
+    auto-commit: false
+    maximum-pool-size: 1
+  second:
+    datasource:
+      type: com.zaxxer.hikari.HikariDataSource
+      jdbc-url: jdbc:h2:mem:another;DB_CLOSE_ON_EXIT=FALSE;
+      username: sa
+      pool-name: another-pool
+      auto-commit: false
+      maximum-pool-size: 2

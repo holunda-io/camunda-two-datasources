@@ -1,0 +1,46 @@
+server:
+  port: 8082
+  max-http-header-size: 16KB
+spring:
+  application:
+    name: two-datasources-process-engine-example
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    open-in-view: true # disable JPA warning
+  jersey:
+    # set Camunda's rest path to /rest (i.e. cement the default, a reference of which is hardcoded in SecurityConfiguration)
+    application-path: "/rest"
+  groovy:
+    template:
+      check-template-location: false # disable groovy template warning
+  flyway:
+    enabled: true
+    locations: "classpath:db/migrations"
+
+camunda:
+  bpm:
+    default-serialization-format: application/json
+    authorization:
+      enabled: false
+    history-level: full
+    webapp:
+      index-redirect-enabled: true
+    # Set to / to comply with older configuration
+      application-path: "/"
+    id-generator: strong
+    database:
+      schema-update: false
+    generic-properties.properties:
+      telemetry-reporter-activate: false
+
+
+logging:
+  level:
+    ROOT: info
+    # To log REST controllers
+    # org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping: TRACE
+    # To log web access
+    # org.springframework.web: INFO

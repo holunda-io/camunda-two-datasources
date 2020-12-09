@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0vkpdd6" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.0.0">
+  <bpmn:process id="process_simple" name="Simple Process" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="Started">
+      <bpmn:outgoing>Flow_0kqulfj</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0kqulfj" sourceRef="StartEvent_1" targetRef="userr_confirm" />
+    <bpmn:userTask id="userr_confirm" name="Confirm Action">
+      <bpmn:extensionElements>
+        <camunda:taskListener delegateExpression="${loggingListener}" event="create" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0kqulfj</bpmn:incoming>
+      <bpmn:outgoing>Flow_0dyblwr</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="Event_08kxjoo">
+      <bpmn:incoming>Flow_0dyblwr</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0dyblwr" sourceRef="userr_confirm" targetRef="Event_08kxjoo" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="process_simple">
+      <bpmndi:BPMNEdge id="Flow_0kqulfj_di" bpmnElement="Flow_0kqulfj">
+        <di:waypoint x="188" y="120" />
+        <di:waypoint x="240" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0dyblwr_di" bpmnElement="Flow_0dyblwr">
+        <di:waypoint x="340" y="120" />
+        <di:waypoint x="392" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="152" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="152" y="145" width="36" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1knosqw_di" bpmnElement="userr_confirm">
+        <dc:Bounds x="240" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_08kxjoo_di" bpmnElement="Event_08kxjoo">
+        <dc:Bounds x="392" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
