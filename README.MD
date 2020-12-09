@@ -23,10 +23,11 @@ with `-P<name>` flag in your command line. To run the test, please run `mvn clea
 
 The profiles are:
 
-none:       just one in-mem h2 is created
-explicit:   the in-mem h2 is specified in properties
-multiple:   there are two data sources defined in the properties, but the first (default) one should be used
-secondary:  there are two data sources defined in the properties, but the second one should be used
+* none:       just one in-mem h2 is created
+* explicit:   the in-mem h2 is specified in properties
+* multiple:   there are two data sources defined in the properties, but the first (default) one should be used
+* secondary:  there are two data sources defined in the properties, but the second one should be used
+
 
 
  
