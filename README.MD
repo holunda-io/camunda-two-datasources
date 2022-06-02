@@ -1,5 +1,7 @@
 # Spring Two Datasource Configuration for a Process Application
 
+[![example](https://img.shields.io/badge/lifecycle-EXAMPLE-blue.svg)](https://github.com/holisticon#open-source-lifecycle)
+
 ## Goal
 
 Demonstration of Camunda BPM Spring Boot integrating multiple data sources and atomicity
